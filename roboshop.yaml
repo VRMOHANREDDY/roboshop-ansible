@@ -67,7 +67,7 @@
       ttl: 1
     loop: "{{instances}}"
     when:
-    - item.item == "frontend"
+    - item == "frontend"
     - action == "delete"
 
   - name : create r53 records

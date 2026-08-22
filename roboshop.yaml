@@ -15,7 +15,7 @@
       - "roboshop-{{item}}"
       - demo-sg
     loop: "{{instances}}"
-    register: ec2-output
+    register: ec2_output
   
   - name: print output
     debug:

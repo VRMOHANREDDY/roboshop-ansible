@@ -4,6 +4,8 @@
   vars:
     instances: ["mongodb","mysql","redis","rabbitmq"]
     image_id: ami-0220d79f3f480ecf5
+    domain_name: ramvootukuri.com
+    action: create
 
   tasks:
   - name: create aws instances
@@ -16,8 +18,32 @@
       - demo-sg
     loop: "{{instances}}"
     register: ec2_output
+    when: action == "create"
   
   - name: print output
     debug:
       msg: "{{ec2_output}}"
 
+  - name : create r53 records
+    amazon.aws.route53:
+      state: present
+      zone: "{{domain_name}}"
+      record: "{{item}}.{{domain_name}}"
+      type: A
+      ttl: 1
+      value: "{{item.instances[0].private_ip_address}}"
+    loop: "{{ec2_output.results}}"
+    when: action == "create"
+
+  - name : create r53 records for frontend
+    amazon.aws.route53:
+      state: present
+      zone: "{{domain_name}}"
+      record: "{{item}}.{{domain_name}}"
+      type: A
+      ttl: 1
+      value: "{{item.instances[0].public_ip_address}}"
+    loop: "{{ec2_output.results}}"
+    when:
+    - item.item == frontend
+    - action == "create"

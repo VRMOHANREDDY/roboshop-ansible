@@ -5,7 +5,7 @@
     instances: ["mongodb","mysql","redis","rabbitmq"]
     image_id: ami-0220d79f3f480ecf5
     domain_name: ramvootukuri.com
-    action: delete
+    action: create
 
   tasks:
   - name: create aws instances
@@ -70,7 +70,7 @@
     - item == "frontend"
     - action == "delete"
 
-  - name : create ec2 instances
+  - name : delete ec2 instances
     amazon.aws.ec2_instance:
       state: absent
       name: "roboshop-{{item}}"

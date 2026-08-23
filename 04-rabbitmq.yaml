@@ -15,7 +15,7 @@
       state: started
       enabled: yes
   - name: create roboshop mq user
-    community.rabbitmq.rabbitmq_server:
+    community.rabbitmq.rabbitmq_user:
       user: roboshop
       password: roboshop123
       permissions:

@@ -42,7 +42,7 @@
   - name: copy user service
     template:
       src: user.service.j2
-      dest: /etc/systemd/system/user.service.j2
+      dest: /etc/systemd/system/user.service
   - name: daemon load
     systemd:
       name: catalogue

@@ -46,7 +46,7 @@
   - name: daemon load
     systemd:
       name: catalogue
-      deamon_reload: true
+      daemon_reload: true
   - name: enable and restart user
     systemd:
       name: user

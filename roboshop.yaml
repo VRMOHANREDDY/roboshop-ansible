@@ -2,12 +2,10 @@
   hosts: local
   connection: local
   vars:
-    #instances: ["mongodb","mysql","redis","rabbitmq","shipping","payment","catalogue","user"]
-    instances: ["frontend"]
+    instances: ["mongodb","mysql","redis","rabbitmq","shipping","payment","catalogue","user","frontend","cart"]
     image_id: ami-0220d79f3f480ecf5
     domain_name: ramvootukuri.com
     action: create
-
   tasks:
   - name: create aws instances
     amazon.aws.ec2_instance:

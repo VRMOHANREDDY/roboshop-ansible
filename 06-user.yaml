@@ -40,10 +40,10 @@
     community.general.npm:
       path: /app
   - name: copy user service
-    templates:
+    template:
       src: user.service.j2
-      dest: /src/systemd/system/user.service
-  - name: deamon load
+      dest: /src/systemd/system/user.service.j2
+  - name: daemon load
     systemd:
       name: catalogue
       deamon_reload: true

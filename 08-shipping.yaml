@@ -49,6 +49,14 @@
     template:
       src: shipping-service.j2
       dest: /etc/systemd/system/shipping.service
+  - name: install python3-pip
+    package:
+      name: python3-pip
+      state: present
+  - name: install pymysql
+    pip:
+      name: PyMySQL
+      executable: pip3
   - name: load mysql data
     community.mysql.mysql_db:
       state: import

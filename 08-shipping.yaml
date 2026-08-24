@@ -41,7 +41,7 @@
     command: mvn clean package
     args: 
       chdir: /app
-  - name: movie shipping jar
+  - name: move shipping jar
     command: mv target/shipping-1.0.jar shipping.jar
     args:
       chdir: /app

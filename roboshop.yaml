@@ -2,8 +2,8 @@
   hosts: local
   connection: local
   vars:
-    #instances: ["mongodb","mysql","redis","rabbitmq"]
-    instances: ["catalogue","user"]
+    #instances: ["mongodb","mysql","redis","rabbitmq","catalogue","user"]
+    instances: ["cart"]
     image_id: ami-0220d79f3f480ecf5
     domain_name: ramvootukuri.com
     action: create

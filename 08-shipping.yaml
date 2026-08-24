@@ -69,4 +69,9 @@
     - /app/db/schema.sql
     - /app/db/app-user.sql
     - /app/db/master-data.sql
+  - name: enable and start shipping
+    systemd:
+      name: shipping
+      state: started
+      enabled: yes
 
